@@ -9,7 +9,8 @@ class Button extends React.Component {
   };
   
 	render() {
-  	return (
+    return ( // again, see that incrementValue was defined outside of the brackets
+             // in-line at the component
     	<button 
       	onClick={this.handleClick}>
       	+{this.props.incrementValue}
