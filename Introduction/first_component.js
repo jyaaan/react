@@ -42,6 +42,7 @@ this.setState(prevState => ({ value: prevState.value + 1}));
 this.setState(prevState => ({ value: prevState.value + 1}));
 
 Keep in mind that setState can also accept a callback function as its second argument.
+Also note that if you parenthesize the body of a function, it will return an object literal expression
 
 */
 
@@ -50,7 +51,10 @@ class Button extends React.Component { // You should extend component class by d
 	state = { counter: 0 };
   
   handleClick = () => {
-  	this.setState(prevState => ({
+    this.setState(prevState => ({ // notice the parenthesis before the bracket.
+                                  // this is because we are not trying to return a value
+                                  // we are trying to return an object expression
+                                  // the parenthesis is arrow function short syntax for "return"
     	counter: prevState.counter + 1
     }));
   };
@@ -72,5 +76,5 @@ class Button extends React.Component { // You should extend component class by d
   }
 }
 
-ReactDOM.render(<Button />, mountNode);
+ReactDOM.render(<Button />, mountNode); // memorize this
 
